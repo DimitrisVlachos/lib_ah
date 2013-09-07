@@ -2,7 +2,7 @@
 #include "aligned_heap.h"
 #include <time.h>
 #include <stdio.h>
-#include <malloc.h>
+
 
 int main() {
 	const uint32_t max_iterations = 1U*10000U;

@@ -7,7 +7,7 @@
 #ifndef __aligned_heap__h__
 #define __aligned_heap__h__
 #include <stdint.h>
-
+#include <malloc.h>
 
 #define k_heap_alignment (64U)
 #define k_heap_alignment_mask (k_heap_alignment - 1U)
