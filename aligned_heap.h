@@ -9,7 +9,15 @@
 #include <stdint.h>
 #include <malloc.h>
 
-#define k_heap_alignment (64U)
+/*
+	pass -D__LIB_AH_DEFAULT_ALIGNMENT__=alignment for custom alignment
+*/
+#ifdef __LIB_AH_DEFAULT_ALIGNMENT__
+	#define k_heap_alignment (__LIB_AH_DEFAULT_ALIGNMENT__)
+#else
+	#define k_heap_alignment (64U)
+#endif
+
 #define k_heap_alignment_mask (k_heap_alignment - 1U)
 
 #define heap_align_attr __attribute__ ((aligned (k_heap_alignment)))

@@ -8,13 +8,17 @@
 
 
 /*
-	Make sure that structure is aligned by at least 16bytes to support SSE# operations
-	For 256bit alignment pass -D__LIB_AH_256BIT_ALIGN_HDR__
+	for 256bit alignment pass -D__LIB_AH_HDR_SIZE__=256
+	for 64 bit alignment pass -D__LIB_AH_HDR_SIZE__=64
+	etc
 */
-#ifdef __LIB_AH_256BIT_ALIGN_HDR__
-	const ptrdiff_t k_heap_hdr_size = (const ptrdiff_t)(32U);
+#ifdef __LIB_AH_HDR_SIZE__
+	const ptrdiff_t k_heap_hdr_size = (const ptrdiff_t)(__LIB_AH_HDR_SIZE__ / 8U);
 #else
-	const ptrdiff_t k_heap_hdr_size = (const ptrdiff_t)(16U);
+/*
+	Make sure that structure is aligned by at least 128bits to support SSE# operations
+*/
+	const ptrdiff_t k_heap_hdr_size = (const ptrdiff_t)(128U / 8U);
 #endif
 
 static inline void wr_addr(void* dst,const void* src) {
