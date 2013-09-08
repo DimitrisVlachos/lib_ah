@@ -1,4 +1,3 @@
-
 #include "aligned_heap.h"
 #include <stdio.h>
  
@@ -34,7 +33,7 @@ int main() {
 	__m128 v ;
 	
  	for (i = 0;i < len;i += 16)	{
-		v = _mm_loadu_ps((float*)(p + i));
+		v = _mm_load_ps((float*)(p + i));
 		_mm_store_ps((float*)(p + i),v);
 	}
 
