@@ -1,4 +1,3 @@
-
 /*
 	lib_ah : Aligned heap wrapper/library
 	Author : Dimitris Vlachos (DimitrisV22@gmail.com @ github.com/DimitrisVlachos)
@@ -26,8 +25,5 @@
  
 void* heap_new(uint64_t size);
 void heap_delete(void* ent);
-void heap_leak_stats();
-void heap_init();
-void heap_shutdown();
 #endif
 
